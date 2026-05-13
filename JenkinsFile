@@ -1,0 +1,38 @@
+```groovy
+pipeline {
+    agent any
+
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+
+    tools {
+        nodejs 'NodeJS'
+    }
+
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning repository...'
+                git branch: 'main',
+                url: 'https://github.com/muskanpagarkar3/SimpleNodeJSPrg.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing dependencies...'
+                bat 'npm install'
+            }
+        }
+
+        stage('Run NodeJS Program') {
+            steps {
+                echo 'Running NodeJS Program...'
+                bat 'node app.js'
+            }
+        }
+    }
+}
+```
