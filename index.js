@@ -3,7 +3,7 @@ const http = require('http');
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello Nodejs, this is Muskan Pagarkar!!');
+    res.end('Hello Nodejs Index, this is Muskan!');
 });
 
 server.listen(3000, () => {
