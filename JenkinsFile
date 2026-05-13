@@ -16,7 +16,7 @@ pipeline {
         stage('Run NodeJS Program') {
             steps {
                 echo 'Running NodeJS Program...'
-                bat 'node app.js'
+                bat 'start /B node app.js'
             }
         }
     }
